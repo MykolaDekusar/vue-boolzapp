@@ -168,7 +168,15 @@ createApp({
           ],
         },
       ],
+      userIndex: 0,
+      messagesNumber: 3,
     };
   },
-  methods: {},
+  methods: {
+    changeUser(index) {
+      this.userIndex = index;
+      this.messagesNumber = this.contacts[this.userIndex].messages.length;
+      console.log(`ciao ${this.messagesNumber}`);
+    },
+  },
 }).mount("#app");

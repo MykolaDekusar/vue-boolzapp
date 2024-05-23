@@ -25,3 +25,4 @@
   Utilizzo il v-for per ciclare la stringa contacts e importare il name e avatar dentro l'html
 
 - Milestone 2:
+  A class="contact-card" ci aggiungo un @click con la funzione changeUser che mi va a prendere l'index di ogni utente e me lo imposta nel Vue.js ( ES primo contatto sarà 0, il secondo sarà 1 ecc...) in modo tale da mostrare sia l'immagine del contatto che il nome nella chat.

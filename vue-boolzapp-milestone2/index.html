@@ -54,7 +54,7 @@
                 <!-- /*****************************************/
                       CONTACT LIST-->
                 <div class="contact-list ">
-                    <div class="contact-card" v-for="(elements, index) in contacts">
+                    <div class="contact-card" v-for="(elements, index) in contacts" @click="changeUser(index)">
                         <div class="img-card">
                             <img class="img-style" :src="elements.avatar" alt="">
                         </div>
@@ -72,10 +72,10 @@
                       CONTACT ROW-->
                 <div class="contact-row b-light-grey">
                     <div class="img-contact">
-                        <img class="img-style" src="./img/avatar_1.jpg" alt="">
+                        <img class="img-style" :src="contacts[userIndex].avatar" alt="">
                     </div>
                     <div class="contact-info">
-                        <h3 class="l-text">Michele</h3>
+                        <h3 class="l-text">{{contacts[userIndex].name}}</h3>
                         <p class="s-text c-gray margin-top">Ultimo accesso oggi alle 16:26</p>
                     </div>
                     <div class="contact-options c-light-gray icon-set-up-options">
@@ -87,35 +87,29 @@
                 <!-- /*****************************************/
                       TEXT CONTAINER-->
                 <div class="text-container">
-                    <div class="msg-1 b-green rounded">
-                        <div>
-                            <p class="l-text padding-1 ">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi quo,
-                                voluptates similique molestiae culpa cum maxime. Unde labore mollitia excepturi
-                                voluptas
-                                quasi doloremque, recusandae quia harum accusamus enim numquam?
+                    <div v-for="(data, index) in contacts[userIndex].messages" :class="{'flex':data.status === 'sent' }">
+                        <div class="msg-1 b-green rounded" v-if="data.status === 'sent'">
+                            <p class="l-text padding-1">
+                               {{data.message}}
                             </p>
+                            <div class="msg-bar c-gray text-align-c">
+                                <div><i class="fa-solid fa-chevron-down"></i></div>
+                                <div class="s-text">16:13</div>
+                            </div>
                         </div>
-                        <div class="msg-bar c-gray text-align-c">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div class="s-text">16:13</div>
-                        </div>
+                        <div class="msg-2 b-white rounded" v-else>
+                            <p class="l-text padding-1">
+                                {{data.message}}
+                            </p>  
+                            <div class="msg-bar c-gray text-align-c">
+                                <div><i class="fa-solid fa-chevron-down"></i></div>
+                                <div class="s-text">16:15</div>
+                            </div>
+                         </div>
                     </div>
-                    <div class="msg-2 b-white rounded">
-                        <div>
-                            <p class="l-text padding-1 ">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi quo,
-                                voluptates similique molestiae culpa cum maxime. Dio cane nde labore mollitia excepturi
-                                voluptas
-                                quasi doloremque, recusandae quia harum accusamus enim numquam?
-                            </p>
-                        </div>
-                        <div class="msg-bar c-gray text-align-c">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div class="s-text">16:15</div>
-                        </div>
-                    </div>
+
                 </div>
+                    
                 <!-- /*****************************************/
                       CHAT ROW-->
                 <div class="chat-row c-gray text-align-c">
