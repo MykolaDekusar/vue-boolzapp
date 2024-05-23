@@ -7,6 +7,9 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
+[v-cloak] {
+    display: none;
+}
 
 /*****************************************/
 /* FONT SIZES */

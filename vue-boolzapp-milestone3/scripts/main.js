@@ -168,8 +168,8 @@ createApp({
           ],
         },
       ],
+      //inizializzo index degli utenti
       userIndex: 0,
-      messagesNumber: 3,
     };
   },
   methods: {

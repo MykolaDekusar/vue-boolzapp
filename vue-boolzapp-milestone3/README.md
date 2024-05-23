@@ -30,3 +30,5 @@
 - Milestone 3:
   All'input del testo assegno un v-model che mi salva il messaggio inserito dall'utente e tramite @keyup.enter vado ad inserirlo dentro l'array in posizione di userIndex, una volta che inserisco il messaggio svuoto la cache del messaggio utente per poter inserire un nuovo messaggio.
   Dentro la stessa funzione creo una funzione anonima setTimeout che dopo 1 secondo mi richiama una funzione che pusha un oggetto dentro l'array corrente con il valore del messaggio Ok e status received.
+
+- Milestone 4:
