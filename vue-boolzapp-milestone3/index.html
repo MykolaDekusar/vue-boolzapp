@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div id="app" class="container">
+    <div id="app" class="container" [v-show]>
         <div class="row">
             <div class="contacts">
                 <!-- /*****************************************/
@@ -87,7 +87,7 @@
                 <!-- /*****************************************/
                       TEXT CONTAINER-->
                 <div class="text-container">
-                    <div v-for="(data, index) in contacts[userIndex].messages" :class="{'flex':data.status === 'sent' }">
+                    <div class="flex" v-for="(data, index) in contacts[userIndex].messages">
                         <div class="msg-1 b-green rounded" v-if="data.status === 'sent'">
                             <p class="l-text padding-1">
                                {{data.message}}
