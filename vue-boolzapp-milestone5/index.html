@@ -60,8 +60,8 @@
                         </div>
                         <div class="content-card">
                             <h3 class="l-text">{{elements.name}}</h3>
-                            <p class="s-text c-light-gray margin-top">Lorem ipsum dolor sit amet</p>
-                            <p class="time c-light-gray s-text">16:15</p>
+                            <p class="s-text c-light-gray margin-top">{{elements.messages[elements.messages.length-1].message}}</p>
+                            <p class="time c-light-gray s-text">{{elements.messages[elements.messages.length-1].date.split(" ")[1].slice(0, 5)}}</p>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="contact-info">
                         <h3 class="l-text">{{contacts[userIndex].name}}</h3>
-                        <p class="s-text c-gray margin-top">Ultimo accesso oggi alle 16:26</p>
+                        <p class="s-text c-gray margin-top">{{contacts[userIndex].messages[contacts[userIndex].messages.length-1].date.split(" ")[1].slice(0, 5)}}</p>
                     </div>
                     <div class="contact-options c-light-gray icon-set-up-options">
                         <div><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -88,7 +88,7 @@
                       TEXT CONTAINER-->
                 <div class="text-container">
                     <div class="flex" v-for="(data, index) in contacts[userIndex].messages">
-                        <div class="msg-1 b-green rounded" v-if="data.status === 'sent'">
+                        <div :class="{ 'msg-1': data.status==='sent', 'msg-2': data.status==='received' }" class="rounded" >
                             <div class="pop-up" v-if="data.isVisible">
                                 <p>Salva Messaggio</p>
                                 <p @click="deleteMsg(index)">Elimina Messaggio</p>
@@ -98,20 +98,9 @@
                             </p>
                             <div class="msg-bar c-gray text-align-c">
                                 <div @click="showPopUp(index)"><i class="fa-solid fa-chevron-down"></i></div>
-                                <div class="s-text">16:13</div>
+                                <div class="s-text">{{dateCalc(data.date)}}</div>
                             </div>
                         </div>
-                        <div  class="msg-2 b-white rounded" v-else>
-                            <div class="pop-up" v-if="data.isVisible">
-                                <p>Salva Messaggio</p>
-                                <p @click="deleteMsg(index)">Elimina Messaggio</p>
-                            </div>
-                            <p class="l-text padding-1">{{data.message}}</p>  
-                            <div class="msg-bar c-gray text-align-c">
-                                <div @click="showPopUp(index)"><i class="fa-solid fa-chevron-down"></i></div>
-                                <div class="s-text">16:15</div>
-                            </div>
-                         </div>
                     </div>
                 </div>
                     
@@ -125,7 +114,11 @@
             </div>
         </div>
     </div>
+    <!-- LUXON  TIME -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- VUE.JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- JAVASCRIPT MAIN -->
     <script src="./scripts/main.js"></script>
 </body>
 </html>

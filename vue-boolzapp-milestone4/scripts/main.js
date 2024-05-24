@@ -213,6 +213,3 @@ createApp({
     },
   },
 }).mount("#app");
-
-//time formatting
-//const myTest = dt.now().setLocale('it').toFormat('D T');
