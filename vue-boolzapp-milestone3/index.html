@@ -54,7 +54,7 @@
                 <!-- /*****************************************/
                       CONTACT LIST-->
                 <div class="contact-list ">
-                    <div class="contact-card" v-for="(elements, index) in contacts" @click="changeUser(index)">
+                    <div class="contact-card" v-for="(elements, index) in contacts" @click="changeUser(index)" :class="{ selected_card : userIndex === index}">
                         <div class="img-card">
                             <img class="img-style" :src="elements.avatar" alt="">
                         </div>
@@ -98,16 +98,13 @@
                             </div>
                         </div>
                         <div class="msg-2 b-white rounded" v-else>
-                            <p class="l-text padding-1">
-                                {{data.message}}
-                            </p>  
+                            <p class="l-text padding-1">{{data.message}}</p>  
                             <div class="msg-bar c-gray text-align-c">
                                 <div><i class="fa-solid fa-chevron-down"></i></div>
                                 <div class="s-text">16:15</div>
                             </div>
                          </div>
                     </div>
-
                 </div>
                     
                 <!-- /*****************************************/

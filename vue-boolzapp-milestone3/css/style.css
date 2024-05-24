@@ -250,6 +250,10 @@
     .contact-options div:nth-child(2) {
         margin: 0 1rem;
     }
+    .img-card:hover {
+        background-color: rgba(0, 0, 0, 0.134);
+        transition-duration: 400ms;
+    }
 
     .chat-row label {
         display: block;
@@ -384,6 +388,7 @@
         font-size: 1rem;
         padding: 0.5rem 0;
         padding-left: 1rem;
+        outline: none;
     }
 
     .search div span {
@@ -413,9 +418,17 @@
         transition-duration: 400ms;
     }
 
+    .selected_card {
+        background-color: rgba(0, 0, 0, 0.134);
+    }
+
     .chat-row label {
         display: block;
         text-align: center;
+    }
+
+    .img-card {
+        pointer-events: none;
     }
 
     .contact-info {

@@ -170,6 +170,8 @@ createApp({
       ],
       //inizializzo index degli utenti
       userIndex: 0,
+      //inizializzo mex utente
+      userMessage: "",
     };
   },
   methods: {
@@ -201,3 +203,6 @@ createApp({
     },
   },
 }).mount("#app");
+
+//time formatting
+//const myTest = dt.now().setLocale('it').toFormat('D T');
