@@ -168,13 +168,13 @@ createApp({
           ],
         },
       ],
-      //inizializzo index degli utenti
+      // Inizializza l'indice degli utenti
       userIndex: 0,
-      //inizializzo mex utente
+      // Inizializza il messaggio dell'utente
       userMessage: "",
-      //inizializzo ricerca utente
+      // Inizializza la ricerca utente
       userSearch: "",
-      messageValue: null,
+      currentTime: null,
     };
   },
   methods: {
@@ -184,49 +184,50 @@ createApp({
     },
     sendUserText() {
       if (this.userMessage) {
-        this.contacts[this.userIndex].messages.push({
-          date: "",
+        const newMessage = {
+          date: luxon.DateTime.now()
+            .setLocale("it")
+            .toFormat("dd/MM/yyyy HH:mm:ss"),
           message: this.userMessage,
           status: "sent",
-        });
+        };
+        this.contacts[this.userIndex].messages.push(newMessage);
         this.userMessage = "";
 
         setTimeout(() => {
-          answerIa(this.contacts, this.userIndex);
+          this.answerIa();
         }, 1000);
-
-        function answerIa(contacts, user) {
-          contacts[user].messages.push({
-            date: "",
-            message: randomAnswer(),
-            status: "received",
-          });
-
-          function randomAnswer() {
-            const answers = [
-              "Ma dai?",
-              "Let's goooo!!!",
-              "Mi spiace ma oggi non posso",
-              "E quindi che si dice?",
-              "Scaricati Dota",
-            ];
-            const numCas = Math.floor(Math.random() * answers.length);
-            return answers[numCas];
-          }
-        }
       }
     },
+    answerIa() {
+      const randomAnswer = () => {
+        const answers = [
+          "Ma dai?",
+          "Let's goooo!!!",
+          "Mi spiace ma oggi non posso",
+          "E quindi che si dice?",
+          "Scaricati Dota",
+        ];
+        const numCas = Math.floor(Math.random() * answers.length);
+        return answers[numCas];
+      };
 
+      const newMessage = {
+        date: luxon.DateTime.now()
+          .setLocale("it")
+          .toFormat("dd/MM/yyyy HH:mm:ss"),
+        message: randomAnswer(),
+        status: "received",
+      };
+      this.contacts[this.userIndex].messages.push(newMessage);
+    },
     searchContact() {
       this.contacts.forEach((contact) => {
-        if (
-          contact.name.toLowerCase().includes(this.userSearch.toLowerCase())
-        ) {
-          contact.visible = true;
-        } else contact.visible = false;
+        contact.visible = contact.name
+          .toLowerCase()
+          .includes(this.userSearch.toLowerCase());
       });
     },
-
     showPopUp(index) {
       this.contacts[this.userIndex].messages[index].isVisible =
         !this.contacts[this.userIndex].messages[index].isVisible;
@@ -234,23 +235,13 @@ createApp({
     deleteMsg(index) {
       this.contacts[this.userIndex].messages.splice(index, 1);
     },
-    //time formatting
+    // Formattazione dell'orario
     dateCalc(data) {
-      const newTime = data.split(" ")[1].slice(0, 5);
-      return newTime;
-    },
-    //actual time
-    actTime() {
-      const dt = luxon.DateTime;
-    },
-
-    updMessageNmbr() {
-      this.messageValue = this.contacts[this.userIndex].messages.length - 3;
-      console.log(this.messageValue);
-      return this.messageValue;
+      const time = luxon.DateTime.fromFormat(
+        data,
+        "dd/MM/yyyy HH:mm:ss"
+      ).toFormat("HH:mm");
+      return time;
     },
   },
 }).mount("#app");
-
-//time formatting
-//const myTest = dt.now().setLocale('it').toFormat('D T');
