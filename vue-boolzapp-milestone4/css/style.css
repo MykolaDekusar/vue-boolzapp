@@ -1,0 +1,460 @@
+/* STARTING FROM MOBILE VERSION */
+/* GENERAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+[v-cloak] {
+    display: none;
+}
+
+/*****************************************/
+/* FONT SIZES */
+.s-text {
+    font-size: 14px;
+}
+
+.m-text {
+    font-size: 15px;
+}
+
+.l-text {
+    font-size: 16px;
+}
+
+.xl-text {
+    font-size: 17px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+/*****************************************/
+/* CONTACT-ROW SETUP */
+.contact-row {
+    display: flex;
+    height: 5rem;
+}
+
+.img-contact {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.contact-info {
+    width: 85%;
+    align-self: center;
+}
+
+/*****************************************/
+/* TEXT-CONTAINER SETUP */
+
+.text-container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 10rem);
+    overflow-y: scroll;
+}
+
+.msg-1 {
+    display: flex;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    margin-left: auto;
+    
+}
+
+.msg-2 {
+    display: flex;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+}
+
+.msg-bar {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0.5rem 0.2rem 0;
+    align-items:end;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+/*****************************************/
+/* CHAT-ROW SETUP */
+
+.chat-row label {
+    display: none;
+}
+
+.chat-row {
+    background-color: #f3eeeb;
+    height: 5rem;
+    padding: 1rem;
+}
+
+.chat-row input {
+    width: 100%;
+    height: 3rem;
+    padding-left: 1rem;
+    outline: none;
+}
+
+/*****************************************/
+/* BACKGROUND IMAGES */
+
+.text-container {
+    background-image: url("../img/mine.jpg");
+    background-size: auto;
+    background-position: center;
+}
+
+/*****************************************/
+/* UTILITY */
+.contacts,
+.user-row-settings,
+.contact-options,
+.content-card {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.msg-1 p,
+.msg-2 p {
+    padding: 1rem 0 1rem 1rem;
+}
+
+.text-align-c {
+    text-align: center;
+}
+
+.margin-top {
+    margin-top: 0.2rem;
+}
+
+.rounded {
+    border-radius: 0.5rem;
+}
+
+.no-border {
+    border: none;
+}
+
+/*****************************************/
+/* IMAGE SETUP */
+
+.img-style {
+    width: 4rem;
+    border-radius: 50%;
+}
+
+/*****************************************/
+/* BACKGROUND COLORS */
+.b-green {
+    background-color: #d4f9bb;
+}
+
+.b-white {
+    background-color: #fff;
+}
+
+.b-light-grey {
+    background-color: #eaeaea;
+}
+
+.b-azure {
+    background-color: #8fdafc;
+}
+
+/* TEXT COLORS */
+.c-gray {
+    color: rgb(123, 123, 123);
+}
+
+.c-light-gray {
+    color: #bbbbbb;
+}
+
+.c-azure {
+    color: #8fdafc;
+}
+
+
+/*****************************************/
+/* TABLET SETUP */
+@media screen and (min-width: 768px) {
+    .row {
+        display: flex;
+    }
+
+    .contacts {
+        display: flex;
+        width: 6rem;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    .notifications,
+    .search {
+        display: none;
+    }
+
+    .chat {
+        width: calc(100% - 6rem);
+        border-left: 1px solid #d6d6d6;
+    }
+
+    .text-container {
+        padding: 3rem;
+    }
+
+    .contact-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 0.5rem;
+        max-height: calc(100vh - 5rem);
+        overflow-y: scroll;
+    }
+
+    .user-row {
+        width: 100%;
+        height: 5rem;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: center;
+        height: 5rem;
+    }
+
+    .icon-set-up-options {
+        align-items: center;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .contact-options {
+        display: flex;
+
+    }
+
+    .contact-options div:nth-child(2) {
+        margin: 0 1rem;
+    }
+    .img-card:hover {
+        background-color: rgba(0, 0, 0, 0.134);
+        transition-duration: 400ms;
+    }
+
+    .chat-row label {
+        display: block;
+        width: 5rem;
+        font-size: 2rem;
+        align-self: center;
+    }
+
+    .chat-row {
+        display: flex;
+    }
+}
+
+/*****************************************/
+/* DEKSTOP SETUP*/
+@media screen and (min-width: 1200px) {
+
+    /*****************************************/
+    /* CENTRAL CONTAINER SETUP */
+    body {
+        display: flex;
+        height: 100vh;
+        position: relative;
+        background: linear-gradient(to bottom, #049688 0%, #049688 20%,
+                #dddbd1 20%, #d2dbdc 100%);
+    }
+
+    .container {
+        height: 90%;
+        width: 80%;
+        margin: auto;
+    }
+
+    /*****************************************/
+    /* INSIDE CONTAINER SETUP*/
+    .row {
+        height: 100%;
+    }
+
+    .contacts {
+        width: 25rem;
+        background-color: white;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    .notifications,
+    .search {
+        display: block;
+    }
+
+    .contact-list {
+        margin: 0;
+        display: block;
+        width: 100%;
+        height: calc(100% - 15rem);
+        overflow-y: scroll;
+        padding: 0;
+    }
+
+    /*****************************************/
+    /*USER ROW SETUP*/
+    .user-row {
+        display: flex;
+        width: 100%;
+    }
+
+    .user-row-settings {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .user-row-settings div:nth-child(2) {
+        margin: 0 1rem;
+    }
+
+    .user-row .img-contact,
+    .user-row .user-row-settings {
+        width: 50%;
+    }
+
+    .img-contact {
+        text-align: left;
+        margin: 0.5rem 0 0 0;
+    }
+
+    .img-style {
+        margin-left: 1rem;
+    }
+
+    .contact-row {
+        width: 100%;
+    }
+
+    /*****************************************/
+    /*NOTIFICATIONS SETUP*/
+
+    .notifications {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+        width: 100%;
+        height: 5rem;
+    }
+
+    .bell {
+        display: flex;
+        width: 4rem;
+        border-radius: 50%;
+        height: 4rem;
+        background-color: white;
+        margin: 0 1rem;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+    }
+
+    /*****************************************/
+    /*SEARCH SETUP*/
+    .search {
+        display: flex;
+        width: 100%;
+        height: 5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search input {
+        width: 80%;
+        border: 1px solid rgba(128, 128, 128, 0.150);
+        border-left: none;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        padding-left: 1rem;
+        outline: none;
+    }
+
+    .search div span {
+        font-size: 1rem;
+        border: 1px solid rgba(128, 128, 128, 0.150);
+        border-right: none;
+        padding: 0.6rem 1rem;
+    }
+
+    /*****************************************/
+    /*CONTACT SETUP*/
+    .contact-card {
+        padding: 0.5rem 0;
+    }
+
+    .contact-card:nth-child(2n) {
+        border-top: 1px solid rgba(128, 128, 128, 0.150);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.150);
+    }
+
+    .contact-card:last-child {
+        border-bottom: none;
+    }
+
+    .contact-card:hover {
+        background-color: rgba(0, 0, 0, 0.134);
+        transition-duration: 400ms;
+    }
+
+    .selected_card {
+        background-color: rgba(0, 0, 0, 0.134);
+    }
+
+    .chat-row label {
+        display: block;
+        text-align: center;
+    }
+
+    .img-card {
+        pointer-events: none;
+    }
+
+    .contact-info {
+        padding-left: 1rem;
+        width: 100%;
+    }
+
+    .content-card {
+        display: block;
+        margin-left: 1rem;
+        position: relative;
+        width: 100%;
+        font-weight: 500;
+    }
+
+    .time {
+        position: absolute;
+        right: 1rem;
+        top: 0;
+    }
+
+    /*****************************************/
+    /*TEXT CONTAINER*/
+    .text-container {
+        height: calc(100% - 10rem);
+        padding: 3rem 6rem;
+    }
+
+}

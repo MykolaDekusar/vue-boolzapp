@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <div class="row">
+            <div class="contacts">
+                <!-- /*****************************************/
+                      USER ROW-->
+                <div class="user-row b-light-grey">
+                    <div class="img-contact">
+                        <img class="img-style" src="./img/avatar_io.jpg" alt="">
+                    </div>
+                    <div class="user-row-settings c-light-gray icon-set-up-options">
+                        <div><i class="fa-solid fa-circle-notch"></i></div>
+                        <div><i class="fa-solid fa-message"></i></div>
+                        <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    </div>
+                </div>
+                <!-- /*****************************************/
+                      NOTIFICATIONS-->
+                <div class="notifications b-azure">
+                    <div class="bell">
+                        <i class="fa-solid fa-bell-slash c-azure"></i>
+                    </div>
+                    <div class="bell-text">
+                        <p class="xl-text">Ricevi notifiche di nuovi messaggi</p>
+                        <a class="c-gray" href="">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+                <!-- /*****************************************/
+                      SEARCH-->
+                <div class="search">
+                    <div>
+                        <span class="fa-solid fa-magnifying-glass c-gray"></span>
+                    </div>
+                    <input class="l-text" v-model="userSearch" @keyup="searchContact()" type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <!-- /*****************************************/
+                      CONTACT LIST-->
+                <div class="contact-list ">
+                    <div class="contact-card" v-for="(elements, index) in contacts" @click="changeUser(index)" :class="{ selected_card : userIndex === index}" v-show="contacts[index].visible">
+                        <div class="img-card">
+                            <img class="img-style" :src="elements.avatar" alt="">
+                        </div>
+                        <div class="content-card">
+                            <h3 class="l-text">{{elements.name}}</h3>
+                            <p class="s-text c-light-gray margin-top">Lorem ipsum dolor sit amet</p>
+                            <p class="time c-light-gray s-text">16:15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--*****************************************-->
+            <div class="chat">
+                <!-- /*****************************************/
+                      CONTACT ROW-->
+                <div class="contact-row b-light-grey">
+                    <div class="img-contact">
+                        <img class="img-style" :src="contacts[userIndex].avatar" alt="">
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="l-text">{{contacts[userIndex].name}}</h3>
+                        <p class="s-text c-gray margin-top">Ultimo accesso oggi alle 16:26</p>
+                    </div>
+                    <div class="contact-options c-light-gray icon-set-up-options">
+                        <div><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div><i class="fa-solid fa-paperclip"></i></div>
+                        <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    </div>
+                </div>
+                <!-- /*****************************************/
+                      TEXT CONTAINER-->
+                <div class="text-container">
+                    <div class="flex" v-for="(data, index) in contacts[userIndex].messages">
+                        <div class="msg-1 b-green rounded" v-if="data.status === 'sent'">
+                            <p class="l-text padding-1">
+                               {{data.message}}
+                            </p>
+                            <div class="msg-bar c-gray text-align-c">
+                                <div><i class="fa-solid fa-chevron-down"></i></div>
+                                <div class="s-text">16:13</div>
+                            </div>
+                        </div>
+                        <div class="msg-2 b-white rounded" v-else>
+                            <p class="l-text padding-1">{{data.message}}</p>  
+                            <div class="msg-bar c-gray text-align-c">
+                                <div><i class="fa-solid fa-chevron-down"></i></div>
+                                <div class="s-text">16:15</div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                    
+                <!-- /*****************************************/
+                      CHAT ROW-->
+                <div class="chat-row c-gray text-align-c">
+                    <label for=""><i class="fa-regular fa-face-smile"></i></label>
+                    <input class="l-text bold rounded no-border" type="text" placeholder="Scrivi un messaggio"  v-model="userMessage"  @keyup.enter="sendUserText()" >
+                    <label for=""><i class="fa-solid fa-microphone"></i></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
