@@ -173,7 +173,6 @@ createApp({
       //inizializzo mex utente
       userMessage: "",
       userSearch: "",
-      isVisible: false,
     };
   },
   methods: {
@@ -213,8 +212,13 @@ createApp({
       });
     },
 
-    showPopUp() {
-      this.isVisible = !this.isVisible;
+    showPopUp(index) {
+      this.contacts[this.userIndex].messages[index].isVisible =
+        !this.contacts[this.userIndex].messages[index].isVisible;
+    },
+
+    deleteMsg(index) {
+      this.contacts[this.userIndex].messages.splice(index, 1);
     },
   },
 }).mount("#app");

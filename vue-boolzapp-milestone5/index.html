@@ -89,26 +89,26 @@
                 <div class="text-container">
                     <div class="flex" v-for="(data, index) in contacts[userIndex].messages">
                         <div class="msg-1 b-green rounded" v-if="data.status === 'sent'">
-                            <div class="pop-up" v-if="isVisible">
+                            <div class="pop-up" v-if="data.isVisible">
                                 <p>Salva Messaggio</p>
-                                <p>Elimina Messaggio</p>
+                                <p @click="deleteMsg(index)">Elimina Messaggio</p>
                             </div>
                             <p class="l-text padding-1">
                                {{data.message}}
                             </p>
-                            <div class="msg-bar c-gray text-align-c" @click="showPopUp()">
-                                <div><i class="fa-solid fa-chevron-down" ></i></div>
+                            <div class="msg-bar c-gray text-align-c">
+                                <div @click="showPopUp(index)"><i class="fa-solid fa-chevron-down"></i></div>
                                 <div class="s-text">16:13</div>
                             </div>
                         </div>
-                        <div class="msg-2 b-white rounded" v-else>
-                            <div class="pop-up" v-if="isVisible">
+                        <div  class="msg-2 b-white rounded" v-else>
+                            <div class="pop-up" v-if="data.isVisible">
                                 <p>Salva Messaggio</p>
-                                <p>Elimina Messaggio</p>
+                                <p @click="deleteMsg(index)">Elimina Messaggio</p>
                             </div>
                             <p class="l-text padding-1">{{data.message}}</p>  
-                            <div class="msg-bar c-gray text-align-c" @click="showPopUp()">
-                                <div><i class="fa-solid fa-chevron-down"></i></div>
+                            <div class="msg-bar c-gray text-align-c">
+                                <div @click="showPopUp(index)"><i class="fa-solid fa-chevron-down"></i></div>
                                 <div class="s-text">16:15</div>
                             </div>
                          </div>

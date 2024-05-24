@@ -32,6 +32,7 @@
   Dentro la stessa funzione creo una funzione anonima setTimeout che dopo 1 secondo mi richiama una funzione che pusha un oggetto dentro l'array corrente con il valore del messaggio Ok e status received.
 
 - Milestone 4:
-  Nel search input tramite v-model inserisco la ricerca dell'utente e la salvo in una stringa che poi vado a confrontare con l'array di contacts e ci assegno una funzione che ad ogni pressione del tasto viene eseguita e verifica che quello che l'utente ha inserito sia presente nell'array iniziale, se è presente allora setto il visible a true, se non è presente setto il visible a false. Nella contact card eseguo un v-show dove prendo il valore booleano, in questo caso se sarà true verrà mastrato, nel caso contrario no.
+  Nel search input tramite v-model inserisco la ricerca dell'utente e la salvo in una stringa che poi vado a confrontare con l'array di contacts e ci assegno una funzione che ad ogni pressione del tasto viene eseguita e verifica che quello che l'utente ha inserito sia presente nell'array iniziale, se è presente allora setto il visible a true, se non è presente setto il visible a false. Nella contact card eseguo un v-show dove prendo il valore booleano, in questo caso se sarà true verrà mostrato, nel caso contrario no.
 
 - Milestone 5:
+  Creo un elemento pop-up nell'html e lo stilizzo nell'css, lo posiziono al di sotto della freccia. Tramite Vue.js quando clicco sulla freccina del mex verifico che il isVisible sia false o true, se è false lo faccio diventare true e tramite una verifica nell'html v-if faccio comparire gli elementi. Dentro gli elementi ci assegno un altra funzione al click per eliminare un messaggio, che tramite splice e l'index che gli passo mi elimina il messaggio.

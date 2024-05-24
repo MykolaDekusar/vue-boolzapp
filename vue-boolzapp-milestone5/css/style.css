@@ -150,12 +150,42 @@
     border: none;
 }
 
+.msg-bar div:first-child:hover{
+    color: rgb(12, 12, 12);
+    transition-duration: 400ms;
+}
+
 /*****************************************/
 /* IMAGE SETUP */
 
 .img-style {
     width: 4rem;
     border-radius: 50%;
+}
+
+ /*****************************************/
+/*POP UP*/
+.pop-up {
+position: absolute;
+top: 1.5rem;
+right: -3rem;
+z-index: 2;
+background-color: rgb(217, 217, 217);
+border: 1px solid gray;
+}
+
+.pop-up p {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.pop-up p:hover {
+    background-color: rgb(131, 131, 131);
+    color: white;
+}
+
+.pop-up p:first-child {
+    border-bottom: 1px solid black;
 }
 
 /*****************************************/
@@ -457,20 +487,5 @@
     .text-container {
         height: calc(100% - 10rem);
         padding: 3rem 6rem;
-    }
-
-    /*****************************************/
-    /*POP UP*/
-    .pop-up {
-        position: absolute;
-        top: 1.5rem;
-        right: -3rem;
-        z-index: 2;
-        background-color: rgba(217, 217, 217, 0.798);
-        border: 1px solid gray;
-    }
-
-    .pop-up p:first-child {
-        border-bottom: 1px solid black;
     }
 }
