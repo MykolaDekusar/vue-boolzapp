@@ -175,6 +175,7 @@ createApp({
       // Inizializza la ricerca utente
       userSearch: "",
       currentTime: null,
+      hide: true,
     };
   },
   methods: {
@@ -242,6 +243,9 @@ createApp({
         "dd/MM/yyyy HH:mm:ss"
       ).toFormat("HH:mm");
       return time;
+    },
+    showContacts() {
+      this.hide = !this.hide;
     },
   },
 }).mount("#app");
