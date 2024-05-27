@@ -176,6 +176,8 @@ createApp({
       userSearch: "",
       currentTime: null,
       hide: true,
+      hideDarkMode: true,
+      setDarkMode: false,
     };
   },
   methods: {
@@ -246,6 +248,13 @@ createApp({
     },
     showContacts() {
       this.hide = !this.hide;
+    },
+    showDarkMode() {
+      this.hideDarkMode = !this.hideDarkMode;
+    },
+    enableDarkMode() {
+      this.setDarkMode = !this.setDarkMode;
+      this.showDarkMode();
     },
   },
 }).mount("#app");

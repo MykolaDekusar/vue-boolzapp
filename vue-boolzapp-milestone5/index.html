@@ -19,10 +19,10 @@
 <body>
     <div id="app" class="container" v-cloak>
         <div class="row">
-            <div class="contacts" :class="{hide : hide}">
+            <div class="contacts" :class="{hide : hide, 'dark-mode': setDarkMode, 'white-text' : setDarkMode}">
                 <!-- /*****************************************/
                       USER ROW-->
-                <div class="user-row b-light-grey">
+                <div class="user-row b-light-grey" :class="{'dark-mode': setDarkMode}":class="{'border-white' : setDarkMode}">
                     <div class="img-contact">
                         <img class="img-style" src="./img/avatar_io.jpg" alt="">
                     </div>
@@ -34,7 +34,7 @@
                 </div>
                 <!-- /*****************************************/
                       NOTIFICATIONS-->
-                <div class="notifications b-azure">
+                <div class="notifications b-azure" :class="{'dark-mode' : setDarkMode, 'border-white' : setDarkMode}">
                     <div class="bell">
                         <i class="fa-solid fa-bell-slash c-azure"></i>
                     </div>
@@ -70,7 +70,7 @@
             <div class="chat">
                 <!-- /*****************************************/
                       CONTACT ROW-->
-                <div class="contact-row b-light-grey">
+                <div class="contact-row b-light-grey" :class="{'dark-mode': setDarkMode, 'white-text' : setDarkMode}">
                     <div class="show-contacts" @click="showContacts()">
                         <i class="fa-solid fa-arrow-left"></i>
                     </div>
@@ -84,12 +84,13 @@
                     <div class="contact-options c-light-gray icon-set-up-options">
                         <div><i class="fa-solid fa-magnifying-glass"></i></div>
                         <div><i class="fa-solid fa-paperclip"></i></div>
-                        <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                        <div @click="showDarkMode()" class="pointer"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                        <div :class="{'hide-dark-mode' : hideDarkMode}"  @click="enableDarkMode()">dark mode</div>
                     </div>
                 </div>
                 <!-- /*****************************************/
                       TEXT CONTAINER-->
-                <div class="text-container">
+                <div class="text-container" :class="{'filter-img-dark' : setDarkMode}">
                     <div class="flex" v-for="(data, index) in contacts[userIndex].messages" :key="index">
                         <div :class="{ 'msg-1': data.status==='sent', 'msg-2': data.status==='received' }" class="rounded" >
                             <div class="pop-up" v-if="data.isVisible">
@@ -109,9 +110,9 @@
                     
                 <!-- /*****************************************/
                       CHAT ROW-->
-                <div class="chat-row c-gray text-align-c">
+                <div class="chat-row c-gray text-align-c" :class="{'dark-mode': setDarkMode}">
                     <label for=""><i class="fa-regular fa-face-smile"></i></label>
-                    <input class="l-text bold rounded no-border" type="text" placeholder="Scrivi un messaggio"  v-model="userMessage"  @keyup.enter="sendUserText()" >
+                    <input class="l-text bold rounded no-border" :class="{'dark-mode': setDarkMode, 'white-text' : setDarkMode, 'border-white' : setDarkMode}" type="text" placeholder="Scrivi un messaggio"  v-model="userMessage"  @keyup.enter="sendUserText()" >
                     <label for=""><i class="fa-solid fa-microphone"></i></label>
                 </div>
             </div>
